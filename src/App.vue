@@ -27,13 +27,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      color="primary"
-      dark
-      prominent
-      src="https://picsum.photos/1920/1080?random"
-    >
+    <v-app-bar app color="primary" dark prominent src="mountains.jpg">
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
