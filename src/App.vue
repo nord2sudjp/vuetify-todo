@@ -29,8 +29,9 @@
 
     <v-app-bar
       app
-      color="#fcb69f"
+      color="primary"
       dark
+      prominent
       src="https://picsum.photos/1920/1080?random"
     >
       <template v-slot:img="{ props }">
