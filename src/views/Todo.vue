@@ -5,7 +5,7 @@
         <v-list-item>
           <template v-slot:default="{ active }">
             <v-list-item-action>
-              <v-checkbox :input-value="active" color="primary"></v-checkbox>
+              <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>
@@ -27,9 +27,9 @@ export default {
   data() {
     return {
       tasks: [
-        { id: 1, title: "Wake up" },
-        { id: 2, title: "Clean the room" },
-        { id: 3, title: "Home work" },
+        { id: 1, title: "Wake up", done: true },
+        { id: 2, title: "Clean the room", done: false },
+        { id: 3, title: "Home work", done: false },
       ],
     };
   },
