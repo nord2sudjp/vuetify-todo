@@ -2,10 +2,10 @@
   <div class="home pa-0">
     <v-list flat>
       <div v-for="task in tasks" :key="task.id">
-        <v-list-item @click="doneTask(task.id)">
-          <template v-slot:default>
+        <v-list-item :class="{ blue: task.done }" @click="doneTask(task.id)">
+          <template #default>
             <v-list-item-action>
-              <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
+              <v-checkbox :input-value="task.done" color="primary" />
             </v-list-item-action>
 
             <v-list-item-content>
@@ -13,7 +13,7 @@
             </v-list-item-content>
           </template>
         </v-list-item>
-        <v-divider></v-divider>
+        <v-divider />
       </div>
     </v-list>
   </div>
