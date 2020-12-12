@@ -23,22 +23,22 @@
 // @ is an alias to /src
 
 export default {
-  name: "Home",
+  name: 'Home',
   data() {
     return {
       tasks: [
-        { id: 1, title: "Wake up", done: true },
-        { id: 2, title: "Clean the room", done: false },
-        { id: 3, title: "Home work", done: false },
+        { id: 1, title: 'Wake up', done: true },
+        { id: 2, title: 'Clean the room', done: false },
+        { id: 3, title: 'Home work', done: false },
       ],
-    };
+    }
   },
   methods: {
     doneTask(id) {
       //console.log("id:" + id);
-      let task = this.tasks.filter((task) => task.id === id)[0];
-      task.done = !task.done;
+      let task = this.tasks.filter(task => task.id === id)[0]
+      task.done = !task.done
     },
   },
-};
+}
 </script>
