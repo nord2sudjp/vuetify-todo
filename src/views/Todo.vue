@@ -2,8 +2,8 @@
   <div class="home pa-0">
     <v-list flat>
       <div v-for="task in tasks" :key="task.id">
-        <v-list-item>
-          <template v-slot:default="{ active }">
+        <v-list-item @click="doneTask(task.id)">
+          <template v-slot:default>
             <v-list-item-action>
               <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
             </v-list-item-action>
@@ -32,6 +32,13 @@ export default {
         { id: 3, title: "Home work", done: false },
       ],
     };
+  },
+  methods: {
+    doneTask(id) {
+      //console.log("id:" + id);
+      let task = this.tasks.filter((task) => task.id === id)[0];
+      task.done = !task.done;
+    },
   },
 };
 </script>
