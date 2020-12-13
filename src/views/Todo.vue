@@ -8,8 +8,8 @@
             class="pa-3"
             hide-details
             clearable
-            @click:append="addTask"
-            @keyup.enter="addTask"
+            @click:append="$store.commit('addTask', newTaskTitle)"
+            @keyup.enter="$store.commit('addTask', newTaskTitle)"
         />
         <v-list v-if="$store.state.tasks.length" class="pt-0" flat>
             <div v-for="task in $store.state.tasks" :key="task.id">
@@ -64,16 +64,6 @@ export default {
         };
     },
     methods: {
-        addTask() {
-            //console.log("add task");
-            let newTask = {
-                id: Date.now(),
-                title: this.newTaskTitle,
-                done: false
-            };
-            this.tasks.push(newTask);
-            this.newTaskTitle = "";
-        },
         doneTask(id) {
             //console.log("id:" + id);
             let task = this.tasks.filter(task => task.id === id)[0];

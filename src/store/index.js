@@ -11,7 +11,17 @@ export default new Vuex.Store({
             { id: 3, title: "Home work", done: false }
         ]
     },
-    mutations: {},
+    mutations: {
+        addTask(state, newTaskTitle) {
+            //console.log("add task");
+            let newTask = {
+                id: Date.now(),
+                title: newTaskTitle,
+                done: false
+            };
+            state.tasks.push(newTask);
+        }
+    },
     actions: {},
     modules: {}
 });
