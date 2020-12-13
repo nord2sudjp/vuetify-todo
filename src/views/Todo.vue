@@ -2,12 +2,15 @@
 <template>
   <div class="home pa-0">
     <v-text-field
+      v-model="newTaskTitle"
       solo
       label="Add Task"
       append-icon="mdi-plus"
       class="pa-3"
       hide-details
       clearable
+      @click:append="addTask"
+      @keyup.enter="addTask"
     />
     <v-list flat>
       <div v-for="task in tasks" :key="task.id">
@@ -46,14 +49,21 @@ export default {
   name: "Home",
   data() {
     return {
+      newTaskTitle: "",
       tasks: [
-        { id: 1, title: "Wake up", done: true },
-        { id: 2, title: "Clean the room", done: false },
-        { id: 3, title: "Home work", done: false },
+        // { id: 1, title: "Wake up", done: true },
+        // { id: 2, title: "Clean the room", done: false },
+        // { id: 3, title: "Home work", done: false },
       ],
     };
   },
   methods: {
+    addTask() {
+      //console.log("add task");
+      let newTask = { id: Date.now(), title: this.newTaskTitle, done: false };
+      this.tasks.push(newTask);
+      this.newTaskTitle = "";
+    },
     doneTask(id) {
       //console.log("id:" + id);
       let task = this.tasks.filter((task) => task.id === id)[0];
