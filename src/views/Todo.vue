@@ -11,8 +11,8 @@
             @click:append="addTask"
             @keyup.enter="addTask"
         />
-        <v-list v-if="tasks.length" class="pt-0" flat>
-            <div v-for="task in tasks" :key="task.id">
+        <v-list v-if="$store.state.tasks.length" class="pt-0" flat>
+            <div v-for="task in $store.state.tasks" :key="task.id">
                 <v-list-item
                     :class="{ 'blue lighten-5': task.done }"
                     @click="doneTask(task.id)"
@@ -59,12 +59,8 @@ export default {
     name: "Home",
     data() {
         return {
-            newTaskTitle: "",
-            tasks: [
-                // { id: 1, title: "Wake up", done: true },
-                // { id: 2, title: "Clean the room", done: false },
-                // { id: 3, title: "Home work", done: false },
-            ]
+            newTaskTitle: ""
+            //tasks: []
         };
     },
     methods: {
