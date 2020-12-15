@@ -5,7 +5,7 @@
             <v-card-text>Task will be deleted permanently.</v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="green darken-1" text @click="dialog = false">
+                <v-btn color="green darken-1" text @click="$emit('close')">
                     No
                 </v-btn>
                 <v-btn
