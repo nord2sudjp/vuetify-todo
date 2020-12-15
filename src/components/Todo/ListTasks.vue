@@ -9,5 +9,3 @@ export default {
     components: { task: require("@/components/Todo/Task.vue").default }
 };
 </script>
-
-<style></style>
