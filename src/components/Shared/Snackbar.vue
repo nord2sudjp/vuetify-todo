@@ -1,6 +1,6 @@
 <template>
     <div class="text-center ma-2">
-        <v-snackbar v-model="snackbar">
+        <v-snackbar v-model="$store.state.snackbar.show">
             {{ text }}
 
             <template v-slot:action="{ attrs }">
@@ -20,7 +20,6 @@
 <script>
 export default {
     data: () => ({
-        snackbar: true,
         text: `Hello, I'm a snackbar`
     })
 };
