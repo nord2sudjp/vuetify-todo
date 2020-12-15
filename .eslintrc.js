@@ -10,7 +10,7 @@ module.exports = {
     ],
     plugins: ["prettier", "vue"],
     rules: {
-        "prettier/prettier": 1,
+        "prettier/prettier": [1, { endOfLine: "auto" }],
         "no-unused-vars": [2, { argsIgnorePattern: "^_" }]
     }
 };

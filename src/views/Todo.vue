@@ -1,21 +1,11 @@
 <template>
     <div class="home pa-0">
-        <v-text-field
-            v-model="newTaskTitle"
-            solo
-            label="Add Task"
-            append-icon="mdi-plus"
-            class="pa-3"
-            hide-details
-            clearable
-            @click:append="$store.commit('addTask', newTaskTitle)"
-            @keyup.enter="$store.commit('addTask', newTaskTitle)"
-        />
+        <field-add-task></field-add-task>
         <v-list v-if="$store.state.tasks.length" class="pt-0" flat>
             <div v-for="task in $store.state.tasks" :key="task.id">
                 <v-list-item
                     :class="{ 'blue lighten-5': task.done }"
-                    @click="doneTask(task.id)"
+                    @click="$store.commit('doneTask', task.id)"
                 >
                     <template #default>
                         <v-list-item-action>
@@ -34,7 +24,12 @@
                             </v-list-item-title>
                         </v-list-item-content>
                         <v-list-item-action>
-                            <v-btn icon @click.stop="deleteTask(task.id)">
+                            <v-btn
+                                icon
+                                @click.stop="
+                                    $store.commit('deleteTask', task.id)
+                                "
+                            >
                                 <v-icon color="primary lighten-1">
                                     mdi-delete
                                 </v-icon>
@@ -57,21 +52,9 @@
 
 export default {
     name: "Home",
-    data() {
-        return {
-            newTaskTitle: ""
-            //tasks: []
-        };
-    },
-    methods: {
-        doneTask(id) {
-            //console.log("id:" + id);
-            let task = this.tasks.filter(task => task.id === id)[0];
-            task.done = !task.done;
-        },
-        deleteTask(id) {
-            this.tasks = this.tasks.filter(task => task.id !== id);
-        }
+
+    components: {
+        "field-add-task": require("@/components/Todo/FieldAddTask.vue").default
     }
 };
 </script>
@@ -81,5 +64,5 @@ export default {
   position : absolute
   left : 50%
   top : 50%
-  transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
 </style>
