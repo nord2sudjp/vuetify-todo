@@ -1,7 +1,7 @@
 <template>
     <div class="text-center ma-2">
         <v-snackbar v-model="$store.state.snackbar.show">
-            {{ text }}
+            {{ $store.state.snackbar.text }}
 
             <template v-slot:action="{ attrs }">
                 <v-btn
@@ -18,11 +18,7 @@
 </template>
 
 <script>
-export default {
-    data: () => ({
-        text: `Hello, I'm a snackbar`
-    })
-};
+export default {};
 </script>
 
 <style></style>
