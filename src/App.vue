@@ -66,7 +66,6 @@
 </template>
 
 <script>
-import Snackbar from "./components/Shared/Snackbar.vue";
 export default {
     data: () => ({
         drawer: null,
