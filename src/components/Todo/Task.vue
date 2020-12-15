@@ -30,11 +30,16 @@
             </template>
         </v-list-item>
         <v-divider />
+        <dialog-delete />
     </div>
 </template>
 
 <script>
 export default {
-    props: ["task"]
+    props: ["task"],
+    components: {
+        "dialog-delete": require("@/components/Todo/Dialogs/DialogDelete.vue")
+            .default
+    }
 };
 </script>
