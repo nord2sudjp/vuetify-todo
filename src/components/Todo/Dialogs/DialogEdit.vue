@@ -2,7 +2,7 @@
     <v-dialog :value="true" persistent max-width="290">
         <v-card>
             <v-card-title class="headline"> Edit Task! </v-card-title>
-            <v-card-text>Title:<v-text-field /></v-card-text>
+            <v-card-text>Title:<v-text-field v-model="taskTitle"/></v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="green darken-1" text @click="$emit('close')">
@@ -18,7 +18,12 @@
 
 <script>
 export default {
-    props: ["task"]
+    props: ["task"],
+    data() {
+        return {
+            taskTitle: "Test"
+        };
+    }
 };
 </script>
 
