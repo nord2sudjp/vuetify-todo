@@ -15,7 +15,7 @@
                     color="red darken-1"
                     text
                     @click="saveTask"
-                    :disabled="!taskTitle"
+                    :disabled="!taskTitle || taskTitle === task.title"
                 >
                     Save
                 </v-btn>
