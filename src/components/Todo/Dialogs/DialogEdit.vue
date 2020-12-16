@@ -21,8 +21,11 @@ export default {
     props: ["task"],
     data() {
         return {
-            taskTitle: "Test"
+            taskTitle: null
         };
+    },
+    mounted() {
+        this.taskTitle = this.task.title;
     }
 };
 </script>
