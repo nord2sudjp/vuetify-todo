@@ -15,7 +15,7 @@
                     color="red darken-1"
                     text
                     @click="saveTask"
-                    :disabled="!taskTitle || taskTitle === task.title"
+                    :disabled="taskTitleInvalid"
                 >
                     Save
                 </v-btn>
@@ -32,11 +32,18 @@ export default {
             taskTitle: null
         };
     },
+    computed: {
+        taskTitleInvalid() {
+            return !this.taskTitle || this.taskTitle === this.task.title; // templateではthisはいらない
+        }
+    },
     methods: {
         saveTask() {
-            let payload = { id: this.task.id, title: this.taskTitle };
-            this.$store.commit("updateTask", payload);
-            this.$emit("close");
+            if (!this.taskTitleInvalid) {
+                let payload = { id: this.task.id, title: this.taskTitle };
+                this.$store.commit("updateTask", payload);
+                this.$emit("close");
+            }
         }
     },
     mounted() {
