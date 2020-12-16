@@ -8,7 +8,7 @@
                 <v-btn color="green darken-1" text @click="$emit('close')">
                     Cancel
                 </v-btn>
-                <v-btn color="red darken-1" text>
+                <v-btn color="red darken-1" text @click="saveTask">
                     Save
                 </v-btn>
             </v-card-actions>
@@ -23,6 +23,12 @@ export default {
         return {
             taskTitle: null
         };
+    },
+    methods: {
+        saveTask() {
+            let payload = { id: this.task.id, title: this.taskTitle };
+            this.$store.commit("updateTask", payload);
+        }
     },
     mounted() {
         this.taskTitle = this.task.title;
