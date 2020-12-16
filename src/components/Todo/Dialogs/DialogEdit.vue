@@ -28,6 +28,7 @@ export default {
         saveTask() {
             let payload = { id: this.task.id, title: this.taskTitle };
             this.$store.commit("updateTask", payload);
+            this.$emit("close");
         }
     },
     mounted() {
