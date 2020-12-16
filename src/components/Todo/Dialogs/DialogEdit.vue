@@ -11,7 +11,12 @@
                 <v-btn color="green darken-1" text @click="$emit('close')">
                     Cancel
                 </v-btn>
-                <v-btn color="red darken-1" text @click="saveTask">
+                <v-btn
+                    color="red darken-1"
+                    text
+                    @click="saveTask"
+                    :disabled="!taskTitle"
+                >
                     Save
                 </v-btn>
             </v-card-actions>
