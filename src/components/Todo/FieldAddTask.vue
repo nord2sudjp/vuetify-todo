@@ -13,7 +13,7 @@
             <v-icon
                 @click="addTask"
                 color="primary"
-                :disabled="!newTaskInvalid"
+                :disabled="!taskTitleInvalid"
             >
                 mdi-plus
             </v-icon>
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         addTask() {
-            if (!this.newTaskTitleInvalid)
+            if (!this.taskTitleInvalid)
                 this.$store.dispatch("addTask", this.newTaskTitle);
             this.newTaskTitle = "";
         }
