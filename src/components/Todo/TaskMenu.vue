@@ -42,7 +42,7 @@
 export default {
     props: ["task"],
     data: () => ({
-        dialogs: { delete: false, edit: false, dueDate: true },
+        dialogs: { delete: false, edit: false, dueDate: false },
         items: [
             {
                 title: "Edit",
@@ -55,7 +55,7 @@ export default {
                 title: "Due Date",
                 icon: "mdi-calendar",
                 click() {
-                    console.log("due date");
+                    this.dialogs.dueDate = true;
                 }
             },
             {
