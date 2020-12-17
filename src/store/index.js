@@ -42,7 +42,11 @@ export default new Vuex.Store({
             let task = state.tasks.filter(task => task.id === payload.id)[0];
             task.title = payload.title;
         },
-
+        updateDueDate(state, payload) {
+            //console.log(payload);
+            let task = state.tasks.filter(task => task.id === payload.id)[0];
+            task.dueDate = payload.dueDate;
+        },
         showSnackbar(state, text) {
             let timeout = 0;
             if (state.snackbar.show) {
@@ -60,6 +64,7 @@ export default new Vuex.Store({
         }
     },
     actions: {
+        //2つ以上のmutationを実行する場合にはactions
         addTask({ commit }, newTaskTitle) {
             commit("addTask", newTaskTitle);
             commit("showSnackbar", "Task Added!");
@@ -70,6 +75,10 @@ export default new Vuex.Store({
         },
         updateTask({ commit }, payload) {
             commit("updateTask", payload);
+            commit("showSnackbar", "Task updated");
+        },
+        updateDueDate({ commit }, payload) {
+            commit("updateDueDate", payload);
             commit("showSnackbar", "Task updated");
         }
     },
