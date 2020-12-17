@@ -3,13 +3,22 @@
         v-model="newTaskTitle"
         solo
         label="Add Task"
-        append-icon="mdi-plus"
         class="pa-3"
         hide-details
         clearable
         @click:append="addTask"
         @keyup.enter="addTask"
-    />
+    >
+        <template v-slot:append>
+            <v-icon
+                @click="addTask"
+                color="primary"
+                :disabled="!newTaskInvalid"
+            >
+                mdi-plus
+            </v-icon>
+        </template>
+    </v-text-field>
 </template>
 
 <script>
@@ -20,9 +29,15 @@ export default {
             //tasks: []
         };
     },
+    computed: {
+        taskTitleInvalid() {
+            return !this.newTaskTitle; // templateではthisはいらない
+        }
+    },
     methods: {
         addTask() {
-            this.$store.dispatch("addTask", this.newTaskTitle);
+            if (!this.newTaskTitleInvalid)
+                this.$store.dispatch("addTask", this.newTaskTitle);
             this.newTaskTitle = "";
         }
     }
