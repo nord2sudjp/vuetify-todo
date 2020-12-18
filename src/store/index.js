@@ -87,5 +87,17 @@ export default new Vuex.Store({
             commit("showSnackbar", "Task updated");
         }
     },
-    modules: {}
+    modules: {},
+    getters: {
+        tasksFiltered(state) {
+            if (!state.search) {
+                return state.tasks;
+            }
+            return state.tasks.filter(task => {
+                return task.title
+                    .toLowerCase()
+                    .includes(state.search.toLowerCase()); // task=>{return }が必要
+            });
+        }
+    }
 });

@@ -30,7 +30,14 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar app color="primary" dark prominent src="mountains.jpg">
+        <v-app-bar
+            app
+            color="primary"
+            dark
+            prominent
+            height="170"
+            src="mountains.jpg"
+        >
             <template #img="{ props }">
                 <v-img
                     v-bind="props"
@@ -45,7 +52,12 @@
                     <search />
                 </v-row>
                 <v-row>
-                    <v-toolbar-title class="ml-4">Application</v-toolbar-title>
+                    <v-toolbar-title class="ml-4 text-h4">
+                        Application
+                    </v-toolbar-title>
+                </v-row>
+                <v-row>
+                    <live-date-time />
                 </v-row>
             </v-container>
         </v-app-bar>
@@ -69,7 +81,8 @@ export default {
     }),
     components: {
         snackbar: require("@/components/Shared/Snackbar.vue").default,
-        search: require("@/components/Tools/Search.vue").default
+        search: require("@/components/Tools/Search.vue").default,
+        "live-date-time": require("@/components/Tools/LiveDateTime.vue").default
     }
 };
 </script>
