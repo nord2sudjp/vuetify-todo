@@ -38,12 +38,16 @@
                 />
             </template>
 
-            <v-app-bar-nav-icon @click="drawer = !drawer" />
-
-            <v-toolbar-title>Application</v-toolbar-title>
-
-            <v-spacer />
-            <search />
+            <v-container class="pa-0">
+                <v-row>
+                    <v-app-bar-nav-icon @click="drawer = !drawer" />
+                    <v-spacer />
+                    <search />
+                </v-row>
+                <v-row>
+                    <v-toolbar-title class="ml-4">Application</v-toolbar-title>
+                </v-row>
+            </v-container>
         </v-app-bar>
 
         <v-main>

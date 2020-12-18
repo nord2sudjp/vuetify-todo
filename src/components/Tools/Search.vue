@@ -18,4 +18,6 @@ export default {};
     .v-input__slot
         &:before, &:after
             border-color: transparent !important
+        &.closed
+            max-width: 10px
 </style>
