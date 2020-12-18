@@ -1,5 +1,9 @@
 <template>
     <v-text-field
+        :value="$store.state.search"
+        @input="$store.commit('setSearch', $event)"
+        @focus="searchClosed = false"
+        @blur="searchClosed = true"
         class="expanding-search mt-1"
         placeholder="Search"
         filled
@@ -10,7 +14,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return { searchClosed: true };
+    }
+};
 </script>
 
 <style lang="sass">
