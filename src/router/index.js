@@ -26,7 +26,8 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    console.log("beforeEach");
+    //console.log("beforeEach");
+    document.title = `Vuetify Todo - ${to.name}`;
     next();
 });
 
