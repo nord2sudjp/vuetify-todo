@@ -1,18 +1,22 @@
 <template>
     <v-app id="inspire">
-        <v-navigation-drawer v-model="drawer" app>
+        <v-navigation-drawer v-model="drawer" :mobile-breakpoint="760" app>
             <v-img
-                class="pa-4"
+                class="pa-4 pt-7"
                 height="170"
                 src="mountains.jpg"
                 gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
             >
-                <v-avatar size="70">
+                <v-avatar size="70" class="mb-2">
                     <img
                         src="https://cdn.vuetifyjs.com/images/john.jpg"
                         alt="John"
                     />
                 </v-avatar>
+                <div class="white--text text-subtitle-1 font-weight-bold">
+                    Danny Connell
+                </div>
+                <div class="white--text text-subtitle-2">dan_connell</div>
             </v-img>
 
             <v-list dense nav>
@@ -48,7 +52,7 @@
                 />
             </template>
 
-            <v-container class="pa-0">
+            <v-container class="header-container pa-0">
                 <v-row>
                     <v-app-bar-nav-icon @click="drawer = !drawer" />
                     <v-spacer />
@@ -90,6 +94,7 @@ export default {
 };
 </script>
 
-<style>
-@import "https://fonts.googleapis.com/css?family=Material+Icons";
+<style lang="sass">
+.header-container
+    max-width: none !important
 </style>
